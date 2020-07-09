@@ -1,6 +1,7 @@
 import React from "react";
 import { Login, Home } from "./pages";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PrivateRoute from "./helpers/PrivateRoute";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducers from "./redux/reducers";
@@ -15,9 +16,9 @@ function App() {
                     <Route exact path="/">
                         <Login />
                     </Route>
-                    <Route exact path="/home">
+                    <PrivateRoute exact path="/home">
                         <Home />
-                    </Route>
+                    </PrivateRoute>
                 </Switch>
             </Router>
         </Provider>
